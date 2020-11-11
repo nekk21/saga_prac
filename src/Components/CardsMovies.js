@@ -41,10 +41,23 @@ const CardsStyle = styled.div`
 function CardsMovies() {
     const moviesInState = useSelector(state => state.items.movies)
 
+    function result(elem) {
+        elem.map(element => {
+            element.key = element.id
+            if (element.show.image === null) {
+                element.show.image = {}
+                element.show.image.medium = 'https://i.ibb.co/G39cq5h/2.png'
+            }
+            return element
+        })
+        return elem
+    }
+    const res = result(moviesInState)
+
     return (
         <CardsStyle>
             <div className="wrapper">
-                {moviesInState.map(film => (
+                {res.map(film => (
                     <div className="each" key={film.id}>
                         <a
                             href={film.show.url}
@@ -53,7 +66,7 @@ function CardsMovies() {
                         >
                             <img
                                 src={film.show.image?.medium}
-                                alt="must be here"
+                                alt="img must be here"
                             ></img>
                         </a>
 

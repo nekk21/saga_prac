@@ -10,7 +10,7 @@ const AlertStyle = styled.div`
 export const AlertMassage = () => (
     <Container>
         <AlertStyle>
-            <Alert variant="dark"> Нет результатов по звпросу! :( </Alert>
+            <Alert variant="dark"> Нет результатов по запросу! :( </Alert>
         </AlertStyle>
     </Container>
 )

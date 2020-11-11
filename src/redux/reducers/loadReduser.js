@@ -1,7 +1,7 @@
-import { SHOW_LOADER } from './types'
-import { HIDE_LOADER } from './types'
-import { SHOW_ALERT } from './types'
-import { HIDE_ALERT } from './types'
+import { SHOW_LOADER } from '../types'
+import { HIDE_LOADER } from '../types'
+import { SHOW_ALERT } from '../types'
+import { HIDE_ALERT } from '../types'
 
 const initialState = {
     loader: false,

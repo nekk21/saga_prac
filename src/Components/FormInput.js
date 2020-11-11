@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { Form, Col, Button, Container } from 'react-bootstrap'
 import { useDispatch } from 'react-redux'
 import styled from 'styled-components'
-import { sendRequest } from '../redux/actions'
+import { sendRequest } from '../redux/actions/actions'
 
 const FormStyle = styled.div`
     form {
@@ -38,6 +38,10 @@ function FormInput() {
         }
     }
 
+    const change = e => {
+        setValue(e.target.value)
+    }
+
     return (
         <Container>
             <FormStyle>
@@ -49,9 +53,7 @@ function FormInput() {
                                     id="form-name"
                                     type="text"
                                     value={value}
-                                    onChange={e => {
-                                        setValue(e.target.value)
-                                    }}
+                                    onChange={change}
                                     placeholder="Enter movie name..."
                                 />
                             </Form.Group>

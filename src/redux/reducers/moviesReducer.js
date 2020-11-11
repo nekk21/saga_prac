@@ -1,4 +1,4 @@
-import { UPLOAD_MOVIES } from './types'
+import { UPLOAD_MOVIES } from '../types'
 
 const initialState = {
     movies: [],

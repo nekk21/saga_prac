@@ -4,7 +4,8 @@ import {
     UPLOAD_MOVIES,
     SHOW_ALERT,
     HIDE_ALERT,
-} from './types'
+    REQUEST_MOVIES,
+} from '../types'
 
 export function uploadMovies(movies) {
     return {
@@ -14,6 +15,13 @@ export function uploadMovies(movies) {
 }
 
 export function sendRequest(url = ``) {
+    // /////////////////////////////////SAGA
+    // return {
+    //     type: REQUEST_MOVIES,
+    // }
+    //}
+    //////////////////////////////////////// Redux-Thunk
+
     return async dispatch => {
         dispatch(showLoader())
 

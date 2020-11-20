@@ -14,28 +14,34 @@ export function uploadMovies(movies) {
     }
 }
 
-export function sendRequest(url = ``) {
-    // /////////////////////////////////SAGA
-    // return {
-    //     type: REQUEST_MOVIES,
-    // }
-    //}
-    //////////////////////////////////////// Redux-Thunk
-
-    return async dispatch => {
-        dispatch(showLoader())
-
-        const response = await fetch(url)
-        const data = await response.json()
-        dispatch({ type: UPLOAD_MOVIES, payload: data })
-
-        if (data < 1) {
-            dispatch(showAlert())
-        }
-
-        dispatch(hideLoader())
+export function sendRequest(url) {
+    /////////////////////////////////SAGA
+    return {
+        type: REQUEST_MOVIES,
+        payload: url,
     }
 }
+
+export async function sendRequestMovies(url) {
+    const response = await fetch(url)
+    return await response.json()
+}
+//////////////////////////////////////// Redux-Thunk
+
+//     return async dispatch => {
+//         dispatch(showLoader())
+
+//         const response = await fetch(url)
+//         const data = await response.json()
+//         dispatch({ type: UPLOAD_MOVIES, payload: data })
+
+//         if (data < 1) {
+//             dispatch(showAlert())
+//         }
+
+//         dispatch(hideLoader())
+//     }
+// }
 
 export function showLoader() {
     return {
@@ -49,7 +55,7 @@ export function hideLoader() {
     }
 }
 
-export function showAlert(text) {
+export function showAlert() {
     return dispatch => {
         dispatch({
             type: SHOW_ALERT,

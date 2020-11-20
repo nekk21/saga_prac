@@ -20,7 +20,7 @@ const store = createStore(
     )
 )
 
-// saga.run(sagaWatcher)
+saga.run(sagaWatcher)
 
 ReactDOM.render(
     <React.StrictMode>
